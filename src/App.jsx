@@ -2,17 +2,20 @@ import './App.css'
 import Header from './componentes/header';
 import TaskList from './componentes/taskList';
 import Task from './componentes/Task';
+import { useEffect, useState } from 'react';
 
 
 const tasks = [
-  { id: 1, name: 'Task 1', completed: false },
-  { id: 2, name: 'Task 2', completed: true },
-  { id: 3, name: 'Task 3', completed: false },
+  { id: 1, name: 'sacar al perro', completed: false },
+  { id: 2, name: 'estudiar para el examen', completed: false },
+  { id: 3, name: 'ir de compras', completed: false },
 ];
+
+
 
 function App() {
   return (<>
-    <div>
+    <div className='contenedor'>
       <Header />
       <TaskList tasks={tasks} />
     </div>
@@ -21,4 +24,3 @@ function App() {
 }
 
 export default App;
-

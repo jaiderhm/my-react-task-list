@@ -1,8 +1,21 @@
+import { useState, useEffect } from "react";
 function Task({ name, completed }){
+
+  const [isCompleted, setIsCompleted] = useState(false)
+
+  const [btnDeshabilitado, setBtnDeshabilitado] = useState(false)
+  useEffect(()=> {
+    if(isCompleted == true){
+      setBtnDeshabilitado(true)
+    }else{
+      setBtnDeshabilitado(false)
+    }
+  }, [isCompleted])
+
   return (
-    <div className={`task ${completed ? 'completed' : ''}`}>
+    <div>
       <span>{name}</span>
-      <input type="checkbox" checked={completed} readOnly />
+      <button disabled={btnDeshabilitado} onClick={()=>setIsCompleted(true)}>completed</button>
     </div>
   );
 };
