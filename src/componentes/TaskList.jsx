@@ -3,16 +3,17 @@ import Task from "./Task";
 
 function TaskList() {
 
-  //Listado de tareas
+ 
   const tasks = [
     { id: 1, title: 'sacar al perro', description : "pasear al perro", completed: false },
     { id: 2, title: 'estudiar para el examen', description : "examen de matematicas", completed: false },
     { id: 3, title: 'ir de compras', description : "comprar estreno", completed: false },
   ];
 
+  const [taksReady, setTasks] = useState([]);
 
 
-  //Efecto para cargar tareas desde localStorage al inicio
+  
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     setTasks(storedTasks);
@@ -21,7 +22,7 @@ function TaskList() {
 
 
 
-  //Función para agregar una nueva tarea
+  
   const addTask = (title, description) => {
     const newTask = {
       id: new Date().getTime(),
@@ -37,7 +38,7 @@ function TaskList() {
 
 
 
-  //Función para eliminar una tarea
+  
   const deleteTask = (taskId) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
@@ -46,7 +47,7 @@ function TaskList() {
 
   
   
-  //Función para editar una tarea
+  
   const editTask = (taskId, title, description) => {
     const updatedTasks = tasks.map((task) =>
       task.id === taskId
@@ -61,7 +62,7 @@ function TaskList() {
 
   
   
-  //Función para marcar una tarea como completada
+  
   const completeTask = (taskId) => {
     const updatedTasks = tasks.map((task) =>
       task.id === taskId
@@ -75,7 +76,7 @@ function TaskList() {
 
   
   
-  //Función para actualizar localStorage
+  
   const updateLocalStorage = (updatedTasks) => {
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };

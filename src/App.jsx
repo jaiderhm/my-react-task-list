@@ -1,4 +1,3 @@
-import './App.css'
 import Header from './componentes/header';
 import TaskList from './componentes/TaskList';
 import Task from './componentes/Task';
@@ -10,8 +9,8 @@ import Task from './componentes/Task';
 function App() {
   return (<>
     <div className='contenedor'>
-      <Header />
-      <TaskList tasks={Task} />
+      <Header className='Header' />
+      <TaskList className='TaskList' tasks={Task} />
     </div>
   </>
   );
